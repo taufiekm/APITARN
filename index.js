@@ -27,9 +27,11 @@ app.group('/api/v1', (router)=>{
 
     // menu
     router.get('/menu', MenuController.index)
+    router.get('/menu/:id', MenuController.show)
     
     // category
     router.get('/category', CategoryController.index)
+    router.get('/category/:id', CategoryController.show)
 })
 
 app.listen(port,()=>console.log('status online'))

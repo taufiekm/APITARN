@@ -3,9 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   const categories = sequelize.define('categories', {
     name: DataTypes.STRING
   }, {});
-  categories.associate = function(models) {
+  categories.associate = function (models) {
     // associations can be defined here
-    categories.hasMany(models.menus)
+    categories.hasMany(models.menus, {
+
+      as: 'menuList',
+      foreignKey: 'categoryId',
+    })
   };
   return categories;
 };
